@@ -15,6 +15,7 @@ public class Dialogue : MonoBehaviour
         dialogueText = new FileInfo("Assets/Scripts/dialogue.txt");
         reader = dialogueText.OpenText();
     }
+    //bla
 
     // Update is called once per frame
     void Update() {
