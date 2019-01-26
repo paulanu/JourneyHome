@@ -21,8 +21,9 @@ public class Dialogue : MonoBehaviour
     void Update() {
         if((line = reader.ReadLine()) != null) 
         {
-			string[] output = line.Split('(', ')');
-			Debug.Log(output);
+			string[] output = line.Split('[', ']');
+			string lineText = string.Join(",", output);
+			Debug.Log(lineText);
 
         }        
     }
