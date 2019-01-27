@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
     		transform.position = initialPosition; 
     		transform.rotation = initialRotation;
 
-    		Debug.Log("right key pressed!");
     		if (!rightArrowLastPressed && (currentTime < lastKeyPress + TIME_LIMIT)) 
     		{
     			if (currentTime < lastKeyPress + TIME_LIMIT) {
@@ -52,7 +51,6 @@ public class Player : MonoBehaviour
     		tripped = false;
 			transform.position = initialPosition; 
     		transform.rotation = initialRotation; 
-    		Debug.Log("left key pressed!");
     		if (rightArrowLastPressed)
     		{
     			if (currentTime < lastKeyPress + TIME_LIMIT) {
@@ -81,11 +79,10 @@ public class Player : MonoBehaviour
 
     private IEnumerator Trip() {
     	float speed = 18f * Time.deltaTime; 
-    	Vector3 target = new Vector3(initialPosition.x, initialPosition.y - .2f, 0);
+    	Vector3 target = new Vector3(initialPosition.x, initialPosition.y - 5f, 0);
     	//move down a little
 	    while (transform.position != target)
 	    {
-	    	Debug.Log("hmmmm");
 			transform.position = Vector3.MoveTowards(transform.position, target, speed);
 			yield return 0;
 		}
@@ -107,6 +104,9 @@ public class Player : MonoBehaviour
             // transform.rotation = Quaternion.Slerp(oldRotation, newRotation, speed);
 			yield return 0;
 		}
+
+		// yield return new WaitForSeconds(waitTime)
+
     }
 
     public void enactPenalty() 
